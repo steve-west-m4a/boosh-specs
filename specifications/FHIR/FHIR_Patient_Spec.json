@@ -92,7 +92,15 @@
     "Name": "Download Source Settings",
     "Title": "Download Source Settings",
     "Description": "Specification for Download Sources"
-  },
+  },  "Download_Section_Settings": {
+    "Rows": [
+      {
+        "Section_Name": "Patient",
+        "Download_Source_Name": "Patients",
+        "Implemented": true,
+        "Report_Where_Criteria": ""
+      }
+    ],
   "Download_Form_Settings": {
     "Rows": [
       {
