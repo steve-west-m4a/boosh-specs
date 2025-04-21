@@ -92,7 +92,8 @@
     "Name": "Download Source Settings",
     "Title": "Download Source Settings",
     "Description": "Specification for Download Sources"
-  },  "Download_Section_Settings": {
+  },
+  "Download_Section_Settings": {
     "Rows": [
       {
         "Section_Name": "Patient",
