@@ -1,0 +1,130 @@
+{
+  "Loader_Settings": {
+    "Rows": [
+      {
+        "Logo_Name": "FHIR_Logo"
+      }
+    ],
+    "Name": "FHIR Patient",
+    "Title": "FHIR Patient Loader Setup Sheet",
+    "Description": "Specifications for FHIR Patient resource operations.",
+    "LoaderFileName": "FHIR_Patient_Spec",
+    "ExportedTime": "2024-01-24T12:00:00"
+  },
+  "Section_Settings": {
+    "Rows": [
+      {
+        "Section_Name": "Patient",
+        "Implemented": true,
+        "One_To_One": true,
+        "Mandatory": true,
+        "Has_Upload_Results": true,
+        "Create_Action_Codes": "$(CREATE)",
+        "Section_Uploader": "FHIRPatientUploader"
+      }
+    ]
+  },
+  "Column_Settings": {
+    "Rows": [
+      {
+        "Column_Name": "Patient ID",
+        "Implemented": true,
+        "Is_Read_Only": true,
+        "Is_Mandatory": false,
+        "Is_Sheet_Column": true,
+        "Column_Section": "Patient",
+        "Control_Type": "Text",
+        "Report_Type": "REST",
+        "Report_Path": "/Patient/{id}"
+      },
+      {
+        "Column_Name": "Family Name",
+        "Implemented": true,
+        "Is_Read_Only": false,
+        "Is_Mandatory": true,
+        "Is_Sheet_Column": true,
+        "Column_Section": "Patient",
+        "Control_Type": "Text"
+      },
+      {
+        "Column_Name": "Given Name",
+        "Implemented": true,
+        "Is_Read_Only": false,
+        "Is_Mandatory": true,
+        "Is_Sheet_Column": true,
+        "Column_Section": "Patient",
+        "Control_Type": "Text"
+      },
+      {
+        "Column_Name": "Birth Date",
+        "Implemented": true,
+        "Is_Read_Only": false,
+        "Is_Mandatory": false,
+        "Is_Sheet_Column": true,
+        "Column_Section": "Patient",
+        "Control_Type": "Date",
+        "Default_Comments": "Format: YYYY-MM-DD"
+      },
+      {
+        "Column_Name": "Gender",
+        "Implemented": true,
+        "Is_Read_Only": false,
+        "Is_Mandatory": false,
+        "Is_Sheet_Column": true,
+        "Column_Section": "Patient",
+        "Control_Type": "LOV",
+        "Report_Type": "Static",
+        "Report_SQL": "SELECT meaning, code FROM (SELECT 'Male' meaning, 'male' code UNION SELECT 'Female', 'female' UNION SELECT 'Other', 'other' UNION SELECT 'Unknown', 'unknown') gender_values"
+      }
+    ],
+    "Name": "Column Settings",
+    "Title": "Column Settings",
+    "Description": "Specification for Column Settings sheet"
+  },
+  "Download_Source_Settings": {
+    "Rows": [
+      {
+        "Source_Name": "FHIR Patient Search",
+        "Report_Type": "REST",
+        "Report_Path": "/Patient"
+      }
+    ],
+    "Name": "Download Source Settings",
+    "Title": "Download Source Settings",
+    "Description": "Specification for Download Sources"
+  },
+  "Download_Form_Settings": {
+    "Rows": [
+      {
+        "Column_Name": "Patient Name",
+        "Download_Source_Name": "FHIR Patient Search",
+        "Implemented": true,
+        "Is_Mandatory": false,
+        "Column_SubSection": "Patient",
+        "Control_Type": "Text",
+        "Support_Control": "Search",
+        "Control_Column": "Left",
+        "Download_Parameter": "name",
+        "Download_Section_Name": "Patient",
+        "Download_Data_Type": "Text"
+      },
+      {
+        "Column_Name": "Birth Date",
+        "Download_Source_Name": "FHIR Patient Search",
+        "Implemented": true,
+        "Is_Mandatory": false,
+        "Column_SubSection": "Patient",
+        "Control_Type": "Date",
+        "Support_Control": "Search",
+        "Control_Column": "Right",
+        "Download_Parameter": "birthdate",
+        "Download_Section_Name": "Patient",
+        "Download_Data_Type": "Date",
+        "Default_Comments": "Format: YYYY-MM-DD"
+      }
+    ],
+    "Name": "Download Form Settings",
+    "Title": "Download Form Settings",
+    "Description": "Specification for Download Form Settings"
+  }
+}
